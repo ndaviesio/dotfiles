@@ -6,6 +6,7 @@ autoload colors; colors
 # Script Parameters
 brew_bin=/opt/homebrew/bin/brew
 work_device=false
+repo=ndaviesio/dotfiles
 
 echo "👋 This script will bootstrap and setup the device."
 read -s -k $'?    Press any key to continue or Ctrl+C to abort...\n\n'
