@@ -1,0 +1,8 @@
+{{- $work := false -}}
+{{- $work := promptBool "work" true -}}
+{{- $email := promptString "email" "me@ndavies.io" -}}
+
+[data]
+    work = {{ $work }}
+    name = "Nathan Davies"
+    email = {{ $email | quote }}
