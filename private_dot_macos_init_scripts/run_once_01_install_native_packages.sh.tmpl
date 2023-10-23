@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+set -eufo pipefail
+
+# Install Rosetta2
+sudo softwareupdate --install-rosetta
+
+download_dir=${HOME}/init/packages
+package_urls=(
+    https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg
+)
+{{ if .work }}
+# Work-specific packages to be installed
+package_urls+=(
+    https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg
+)
+{{ end }}
+
+[ ! -d ${download_dir} ] && mkdir -p ${download_dir}
+for url in ${package_urls[@]}; do
+    package=${download_dir}/$(basename ${url})
+    
+    curl -L ${url} -o ${package}
+    sudo installer -pkg ${package} -target /
+
+    rm -f ${package} 
+done
+rmdir ${download_dir}

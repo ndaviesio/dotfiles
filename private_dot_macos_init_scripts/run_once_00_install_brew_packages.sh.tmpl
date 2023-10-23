@@ -1,0 +1,44 @@
+#!/bin/zsh
+
+set -eufo pipefail
+
+formulae=(
+    spaceship
+    git
+    gh
+)
+casks=(
+    firefox
+    visual-studio-code
+    iterm2
+    google-drive
+    utm
+    microsoft-office
+)
+
+{{ if .work }}
+# Work-specific packages to be installed
+formulae+=(
+    awscli
+    tfenv
+    pyenv
+)
+casks+=(
+    slack
+    git-credential-manager
+    docker
+)
+{{ else }}
+# Personal-specific packages to be installed
+casks+=(
+    discord
+    teamviewer
+)
+{{ end }}
+
+brew update
+
+brew install ${formulae[@]}
+brew install --cask ${casks[@]}
+
+brew cleanup
