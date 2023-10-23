@@ -1,0 +1,11 @@
+[credential]
+	helper = {{ if .work }}manager{{ else }}osxkeychain{{ end }}
+[credential "https://github.com/"]
+	helper = 
+	helper = !gh auth git-credential
+[credential "https://gist.github.com/"]
+	helper = 
+	helper = !gh auth git-credential
+[user]
+	name = {{ .name }}
+	email = {{ .email }}
