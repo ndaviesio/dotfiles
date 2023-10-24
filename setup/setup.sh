@@ -5,7 +5,7 @@ autoload colors; colors
 
 # Script Parameters
 brew_bin=/opt/homebrew/bin/brew
-work_device=false
+work_device=true
 repo=ndaviesio/dotfiles
 
 echo "👋 This script will bootstrap and setup the device."
