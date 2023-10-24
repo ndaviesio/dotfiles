@@ -20,7 +20,7 @@ package_urls+=(
 for url in ${package_urls[@]}; do
     package=${download_dir}/$(basename ${url})
     
-    curl -L ${url} -o ${package}
+    curl -Ls ${url} -o ${package}
     sudo installer -pkg ${package} -target /
 
     rm -f ${package} 
