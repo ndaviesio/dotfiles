@@ -1,0 +1,38 @@
+###############################################################################
+# Spaceship Prompt                                                            #
+#                                                                             #
+# Reference: https://spaceship-prompt.sh/config/prompt/                       #
+###############################################################################
+
+source $(brew --prefix)/opt/spaceship/spaceship.zsh
+
+# Hide timestamps in prompt
+SPACESHIP_TIME_SHOW=false
+
+# Show full repo path when in a git repo
+SPACESHIP_DIR_TRUNC_REPO=false
+
+# Show battery indicator when below threshold setting
+SPACESHIP_BATTERY_SHOW=true
+SPACESHIP_BATTERY_THRESHOLD=15
+
+###############################################################################
+# Extensions                                                                  #
+###############################################################################
+
+# Load zsh plugins / extensions (without oh-my-zsh)
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+###############################################################################
+# Environment Variables                                                       #
+###############################################################################
+
+# Disable Homebrew hints for configuring behaviour with environment variables.
+# Review `man brew` for available brew environment configuration.
+export HOMEBREW_NO_ENV_HINTS=True
+
+###############################################################################
+# Aliases                                                                     #
+###############################################################################
+source ~/.aliases

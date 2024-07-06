@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+# error exit enabled later as process check may intentionally return non-zero exit code.
+set -ufo pipefail
+
+# Use the hash template function to trigger a change and subsequent execution of this script.
+# plist hash: {{ include "private_Library/private_Preferences/private_eu.exelban.Stats.plist" | sha256sum }}
+
+COUNT=$(ps aux | grep -v grep | grep -c "Stats.app")
+set -e
+if [ ! $COUNT -eq 0 ]; then
+    killall "Stats" &> /dev/null
+    open /Applications/Stats.app
+fi
