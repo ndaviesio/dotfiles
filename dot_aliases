@@ -1,6 +1,6 @@
 ###############################################################################
 # Aliases                                                                     #
 ###############################################################################
-alias cm="$HOME/.local/bin/chezmoi"
+alias cm="$HOME/bin/chezmoi"
 alias reload="source ~/.zshrc" # Reload this configuration
 alias tf="terraform"
