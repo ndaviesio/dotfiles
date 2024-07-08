@@ -1,5 +1,5 @@
 #!/bin/zsh
-set -eufo pipefail
+set -ufo pipefail
 
 brew_bin=/opt/homebrew/bin/brew
 FORMULAE=(
@@ -25,8 +25,8 @@ CASKS=(
     nextcloud
     spotify
     discord
-    microsoft-word
-    microsoft-excel
+    microsoft-office
+    microsoft-teams
 
     # Utilities
     alfred
@@ -44,12 +44,13 @@ CASKS_BYPASS_GATEKEEPER=(
     librewolf
 )
 
-UNINSTALLS=()
+UNINSTALLS=(
+)
 
 ${brew_bin} update
+[ ${#UNINSTALLS[@]} -gt 0 ] && \
+    ${brew_bin} uninstall ${UNINSTALLS[@]}
 ${brew_bin} install ${FORMULAE[@]}
 ${brew_bin} install --cask ${CASKS[@]}
 ${brew_bin} install --no-quarantine --cask  ${CASKS_BYPASS_GATEKEEPER[@]}
-[ ${#UNINSTALLS[@]} -gt 0 ] && \
-    ${brew_bin} uninstall ${UNINSTALLS[@]}
 ${brew_bin} cleanup
