@@ -27,6 +27,8 @@ CASKS=(
     discord
     microsoft-office
     microsoft-teams
+    microsoft-edge
+    logitech-options
 
     # Utilities
     alfred
