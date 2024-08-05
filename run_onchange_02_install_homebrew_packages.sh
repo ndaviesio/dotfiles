@@ -29,6 +29,7 @@ CASKS=(
     microsoft-teams
     microsoft-edge
     logitech-options
+    adobe-creative-cloud
 
     # Utilities
     alfred
